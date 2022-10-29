@@ -35,7 +35,21 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// $routes->get('/', 'Home::index');
+
+//HomePage
+$routes->get('/', 'CrudController::index');
+
+//InsertData
+$routes->get('/insert', 'CrudController::insert');
+$routes->post('/insert', 'CrudController::insert');
+
+// UpdateData
+$routes->get('/editData/(:any)', 'CrudController::editData/$1');
+$routes->post('/updateData/(:any)', 'CrudController::updateData/$1');
+
+// DeleteRecord
+$routes->get('/delete/(:any)', 'CrudController::deleteUser/$1');
 
 /*
  * --------------------------------------------------------------------
